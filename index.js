@@ -134,17 +134,54 @@ bot.on("message", function(message) {
     if (!message.content.startsWith(prefix)) return;
     
     var args = message.content.substring(prefix.length).split(" ");
-
-    case "avatar":
-    if (!message.mentions.users.first()) return message.channel.send("Merci de mentionner un utilisateur")
-        let user = message.mentions.users.first() ? message.mentions.users.first() : message.author
-        let ava = user.displayAvatarURL
-        let embed = {
-        color:0x000000,
-        description:"Avatar de "+user.username+"",
-        image:{url:ava}
-        }
-    message.channel.send("", {embed})
-    break;
     
-    });
+    switch (args[0].toLowerCase()) {
+        case "846259637891play":
+        var argsplay = message.content.substring(prefix.length).split(" ");
+            if (!argsplay[1]) {
+                message.channel.sendMessage("Merci d'envoyer le lien.");
+                return;
+            }
+
+            if (!message.member.voiceChannel) {
+                message.channel.sendMessage("Tu dois être dans un channel vocal.");
+                return;
+            }
+
+            if(!servers[message.guild.id]) servers[message.guild.id] = {
+                queue: []
+            };
+
+            var server = servers[message.guild.id];
+
+            server.queue.push(argsplay[1]);
+
+            if (!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection) {
+                play(connection, message);
+                message.channel.send("Lancement de votre musique. \n En cas de problème, vérifier si c'est un lien ( et non un teste ), si celle-ci n'a pas de copyright ou est correcte.")
+            });
+            break;
+        case "846259637891skip":
+            var server = servers[message.guild.id];
+
+            if (server.dispatcher) server.dispatcher.end();
+            message.channel.send("Musique skipé !\nEn cas de problème, vérifier si c'est un lien ( et non un teste ), si celle-ci n'a pas de copyright ou est correcte.")
+            break;
+        case "846259637891stop":
+            var server = servers[message.guild.id];
+
+            if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
+            message.channel.send("Musique arrêté.")
+            break;
+            case "avatar":
+            if (!message.mentions.users.first()) return message.channel.send("Merci de mentionner un utilisateur")
+                let user = message.mentions.users.first() ? message.mentions.users.first() : message.author
+                let ava = user.displayAvatarURL
+                let embed = {
+                color:0x000000,
+                description:"Avatar de "+user.username+"",
+                image:{url:ava}
+                }
+            message.channel.send("", {embed})
+            break;
+            }});
