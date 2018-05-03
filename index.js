@@ -183,6 +183,5 @@ bot.on("message", function(message) {
                 image:{url:ava}
                 }
             message.channel.send("", {embed})
-            break;
-            
-        });
+            break
+            }});
