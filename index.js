@@ -125,6 +125,7 @@ bot.on("message", message => {
         .setTimestamp()
             message.channel.send({embed})
     }
+    
     if(message.content.startsWith(prefix + "edwin")){
         if (message.author.id != '349507820221104128') {message.reply("**Il n'y a que @Edωɨה#5292 qui peut l'utilisée!**")
             } else {
