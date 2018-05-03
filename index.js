@@ -227,7 +227,7 @@ bot.on("message", function(message) {
            break;
            case "chat":
                    try {
-                    get('https://aws.random.cat/meow').then(res => {
+                    get('http://random.cat').then(res => {
                         var replys = [
                             '#F407FC', 
                             '#034EEF',
