@@ -125,5 +125,9 @@ bot.on("message", message => {
         .setTimestamp()
             message.channel.send({embed})
     }
+    
+    if (message.content === "<passager"){
+        message.channel.sendMessage("Discord: https://discord.gg/TyzYKvG");
+        console.log("Commande Passager effectué");
 
 });
