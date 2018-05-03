@@ -129,15 +129,16 @@ bot.on("message", message => {
 });
 
 bot.on("message", function(message) {
-            case "avatar":
-            if (!message.mentions.users.first()) return message.channel.send("Merci de mentionner un utilisateur")
-                let user = message.mentions.users.first() ? message.mentions.users.first() : message.author
-                let ava = user.displayAvatarURL
-                let embed = {
-                color:0x000000,
-                description:"Avatar de "+user.username+"",
-                image:{url:ava}
-                }
-            message.channel.send("", {embed})
-            break
-            });
+    break;
+    case "avatar":
+    if (!message.mentions.users.first()) return message.channel.send("Merci de mentionner un utilisateur")
+        let user = message.mentions.users.first() ? message.mentions.users.first() : message.author
+        let ava = user.displayAvatarURL
+        let embed = {
+        color:0x000000,
+        description:"Avatar de "+user.username+"",
+        image:{url:ava}
+        }
+    message.channel.send("", {embed})
+    break;
+    });
