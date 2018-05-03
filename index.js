@@ -125,16 +125,5 @@ bot.on("message", message => {
         .setTimestamp()
             message.channel.send({embed})
     }
-    
-    if(message.content.startsWith(prefix + "edwin")){
-        if (message.author.id != '349507820221104128') {message.reply("**Il n'y a que @Edωɨה#5292 qui peut l'utilisée!**")
-            } else {
-            let embed = new Discord.RichEmbed()
-            .setColor("#000000")
-            .setDescription("[YouTube:](https://www.youtube.com/c/edwinmiro/?sub_confirmation=1)")
-            .setFooter("BIG UP A EDWIN ;)")
-            return message.channel.send({embed})
-        }
-
 
 });
