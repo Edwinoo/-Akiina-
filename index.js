@@ -127,8 +127,8 @@ bot.on("message", message => {
     }
 
     if (message.content.startsWith(prefix + "clear")) {
-        if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply(" ❌ **Ta pas les permissions**");
-        message.channel.bulkDelete(args[0]).then(() => {
+        if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply(" ❌ **Ta pas les permissions**"); {
+        message.channel.bulkDelete(args[0]).then(() => 
             message.channel.send(`Clear ${args[0]} messages.`).then(msg => msg.delete(2000));
     }
 }    
