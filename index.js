@@ -40,7 +40,8 @@ bot.on("message", message => {
       let embed = new Discord.RichEmbed()
       .setColor('#00FFFF')
       .setDescription("__**FUN**__ : \n" +
-      " `<avatar (@user)` : *Montre l'avatar d'une personne*\n")
+      " `<avatar (@user)` : *Montre l'avatar d'une personne*\n" +
+      " `<sondage` : *Créer ton Sondage*\n" )
       message.author.send({embed});
       }
 
@@ -76,7 +77,7 @@ bot.on("message", message => {
             .setDescription(`${message.author.username}, Voici la liste des commandes:`)
             .addField('DIVERS:' , "` <support \n<invite \n<dhelp `")
             .addField(`MODERATION:` , "` <ban \n<kick \n <say \n <clear`")
-            .addField('FUN:' , "' <avatar \n'" ) 
+            .addField('FUN:' , "' <avatar \n<sondage \n'" ) 
             .setTimestamp()
             .setColor("0x00FF00")
             .setFooter("RIEN METTRE EN MAJ, SI TU COMPREND PAS FAIT [<help]  | @Edωɨה#5292 ")
@@ -115,7 +116,7 @@ bot.on("message", message => {
     }
 }
 
-    if(message.content.startsWith(prefix + "edwin")) {
+    if(message.content.startsWith(prefix + "testdate")) {
         var d = new Date()
         let embed = new Discord.RichEmbed()
         .setColor('#5F04B4')
@@ -173,7 +174,7 @@ bot.on("message", function(message) {
             message.channel.send("Musique arrêté.")
             break;
             case "avatar":
-            if (!message.mentions.users.first()) return message.channel.send("Merci de mentionner un utilisateur")
+            if (!message.mentions.users.first()) return message.channel.send("**Merci de mentionner un utilisateur**")
                 let user = message.mentions.users.first() ? message.mentions.users.first() : message.author
                 let ava = user.displayAvatarURL
                 let embed = {
@@ -199,14 +200,14 @@ bot.on("message", function(message) {
                    return message.reply("❌ **hep hep, Ta pas les permissions !**").catch(console.error);
                }
                if(message.mentions.users.size === 0) {
-                   return message.reply("Merci de mentionner l'utilisateur à expluser.").catch(console.error);
+                   return message.reply("**Merci de mentionner l'utilisateur à expluser.**").catch(console.error);
                }
                let kickMember = message.guild.member(message.mentions.users.first());
                if(!kickMember) {
-                   return message.reply("Cet utilisateur est introuvable ou impossible à expulser.")
+                   return message.reply("**Cet utilisateur est introuvable ou impossible à expulser.**")
                }
                if(!message.guild.member(bot.user).hasPermission("KICK_MEMBERS")) {
-                   return message.reply("Je n'ai pas la permission KICK_MEMBERS pour faire ceci.").catch(console.error);
+                   return message.reply("**Je n'ai pas la permission KICK_MEMBERS pour faire ceci.**").catch(console.error);
                }
                kickMember.kick().then(member => {
                    message.reply(" ✅ " + member.displayName + " **Je les dégager mais fait gaf il peut revenir.** :wave: ").catch(console.error);
@@ -220,7 +221,7 @@ bot.on("message", function(message) {
                return message.reply("❌ **hep hep, Ta pas les permissions !**").catch(console.error);
            }
            const member = message.mentions.members.first();
-           if (!member) return message.reply("Merci de mentionner l'utilisateur à bannir.");
+           if (!member) return message.reply("**Merci de mentionner l'utilisateur à bannir.**");
            member.ban().then(member => {
                message.reply(" ✅ " + member.displayName + " **C'est bon, il reviendra plus.** :wave: ").catch(console.error);
            }).catch(console.error)
@@ -229,14 +230,14 @@ bot.on("message", function(message) {
            if (message.member.hasPermission("MANAGE_MESSAGES")) {
                let args = message.content.split(" ").slice(1);
                let thingToEcho = args.join(" ")
-               if (!thingToEcho) return message.reply("Merci d'envoyer une question pour le sondage")
-               if (!message.guild.channels.find("name", "sondage")) return message.reply("Le channel sondage est introuvable. merci de crée ce channel pour que celui-ci marche.")
+               if (!thingToEcho) return message.reply("**hmmm...Je crois que ta oublier la question** :thinking: ")
+               if (!message.guild.channels.find("name", "sondage")) return message.reply("**Si tu veux faire un sondage tu dois d'habord créer un channel sondage !**")
                var embedeee = new Discord.RichEmbed()
                    .setDescription("Sondage")
                    .addField(thingToEcho, "Répondre avec :white_check_mark: ou :x:")
                    .setColor("0xB40404")
                    .setTimestamp()
-           message.channel.sendMessage("Votre sondage a bien été envoyé dans #sondage.")
+           message.channel.sendMessage("**Votre sondage a bien été envoyé dans #sondage.**")
            message.guild.channels.find("name", "sondage").sendEmbed(embedeee)
            .then(function (message) {
                message.react("✅")
@@ -244,6 +245,43 @@ bot.on("message", function(message) {
            }).catch(function() {
            });
            }else{
-               return message.reply("Tu n'as pas la permission.")}
+               return message.reply("❌ **Ta pas les permissions !**")}
            break;
+           case "8ball":
+           let argsed = message.content.split(" ").slice(1);
+           let tte = argsed.join(" ")
+           if (!tte){
+               return message.reply("**Merci de poser une question.** :8ball:")};
+
+                        var replys8 = [
+                            '#F407FC', 
+                            '#034EEF',
+                            '#09F4D1',
+                            '#09F14E',
+                            '#E7EF07',
+                            '#F5A718',
+                            '#FB4B06',
+                            '#FB2702',
+                            '#F6F4F3',
+                            '#201F1F'
+                        ];
+                    
+                        let reponse8 = (replys8[Math.floor(Math.random() * replys8.length)])
+    
+               var replys = [
+               "Oui.",
+               "Non.",
+               "Je ne sais pas.",
+               "Peut-être.",
+               "Probablement."
+               ];
+           
+               let reponse = (replys[Math.floor(Math.random() * replys.length)])
+               var ballembed = new Discord.RichEmbed()
+               .setDescription(":8ball: 8ball")
+               .addField("Question", tte)
+               .addField("Réponse", reponse)
+               .setColor(reponse8)
+           message.channel.sendEmbed(ballembed)
+               break;
             }});
