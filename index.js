@@ -4,7 +4,7 @@ const bot = new Discord.Client();
 var prefix = ("<")
 
 bot.on("ready", function() {
-    bot.user.setActivity(`<help | ${bot.guilds.size} Servers | ${bot.users.size} Users | © @Edωɨה#5292  [V:2.0]`)
+    bot.user.setActivity(`<help | ${bot.guilds.size} Servers | ${bot.users.size} Users | © @Edωɨה#5292  [V: 4.0]`)
     console.log("Connecté 100%");
 });
 
@@ -42,7 +42,7 @@ bot.on("message", message => {
       .setDescription("__**FUN**__ : \n" +
       " `<avatar (@user)` : *Montre l'avatar d'une personne*\n" +
       " `<sondage` : *Créer ton Sondage*\n" +
-      " `<8ball` : *Pose des question et Akiina repond*\n" )
+      " `<Akiina` : *Pose des question et Akiina repond*\n" )
       message.author.send({embed});
       }
 
@@ -78,7 +78,7 @@ bot.on("message", message => {
             .setDescription(`${message.author.username}, Voici la liste des commandes:`)
             .addField('DIVERS:' , "` <support \n<invite \n<dhelp `")
             .addField(`MODERATION:` , "` <ban \n<kick \n<say \n<clear`")
-            .addField('FUN:' , "'<avatar \n<sondage \n<8ball'" ) 
+            .addField('FUN:' , "'<avatar \n<sondage \n<Akiina'" ) 
             .setTimestamp()
             .setColor("0x00FF00")
             .setFooter("RIEN METTRE EN MAJ, SI TU COMPREND PAS FAIT [<help]  | @Edωɨה#5292 ")
@@ -117,11 +117,11 @@ bot.on("message", message => {
     }
 }
 
-    if(message.content.startsWith(prefix + "testdate")) {
+    if(message.content.startsWith(prefix + "owner")) {
         var d = new Date()
         let embed = new Discord.RichEmbed()
         .setColor('#5F04B4')
-        .setTitle("Voici la date actuelle")
+        .setTitle("Mon créateur: @Edωɨה#5292 ")
         .setFooter(`Demandé par ${message.author.tag} | @Edωɨה#5292  `)
         .setTimestamp()
             message.channel.send({embed})
@@ -248,11 +248,11 @@ bot.on("message", function(message) {
            }else{
                return message.reply("❌ **Ta pas les permissions !**")}
            break;
-           case "8ball":
+           case "Akiina":
            let argsed = message.content.split(" ").slice(1);
            let tte = argsed.join(" ")
            if (!tte){
-               return message.reply("**Merci de poser une question.** :8ball:")};
+               return message.reply("**hmmm...Je crois que ta oublier la question** :yum: ")};
 
                         var replys8 = [
                             '#F407FC', 
@@ -279,7 +279,7 @@ bot.on("message", function(message) {
            
                let reponse = (replys[Math.floor(Math.random() * replys.length)])
                var ballembed = new Discord.RichEmbed()
-               .setDescription(":8ball: 8ball")
+               .setDescription("Akiina :heart:")
                .addField("Question", tte)
                .addField("Réponse", reponse)
                .setColor(reponse8)
