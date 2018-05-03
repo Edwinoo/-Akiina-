@@ -4,7 +4,7 @@ const bot = new Discord.Client();
 var prefix = ("<")
 
 bot.on("ready", function() {
-    bot.user.setActivity(`<help | ${bot.guilds.size} Servers | ${bot.users.size} Users`)
+    bot.user.setActivity(`<help | ${bot.guilds.size} Servers | ${bot.users.size} Users | © @Edωɨה#5292  [V:2.0]`)
     console.log("Connecté 100%");
 });
 
@@ -29,8 +29,8 @@ bot.on("message", message => {
         let embed = new Discord.RichEmbed()
         .setColor('#FF8000')
         .setDescription("__**MODERATION**__ : \n" +
-            " `❌<kick (@user)` : *Pour kick un joueur*\n" +
-            " `❌<ban (@user)` : *Pour ban une personne*\n" +
+            " `<kick (@user)` : *Pour kick un joueur*(PARFOIS BUG)\n" +
+            " `<ban (@user)` : *Pour ban une personne*(PARFOIS BUG)\n" +
             " `<say` : *Pour envoyer un message au nom du bot*\n" )
       message.author.send({embed});
       }
@@ -64,7 +64,7 @@ bot.on("message", message => {
         let embed = new Discord.RichEmbed()
         .setColor('#00FFFF')
         .setTitle("Invite moi")
-        .addField(" 📋 Pour m'ajouter a ton discord ", "[Cliquez ici](https://discordapp.com/oauth2/authorize?client_id=441541870586167296&scope=bot&permissions=66321471)", true)
+        .addField(" 📋 Pour m'ajouter a ton discord ", "[Cliquez ici](https://discordapp.com/api/oauth2/authorize?client_id=441314766720598036&scope=bot&permissions=66321471)", true)
         .setFooter(`Réclamé par ${message.author.tag} |  @Edωɨה#5292 `)
         .setTimestamp()
         message.channel.send({embed})
@@ -82,7 +82,7 @@ bot.on("message", message => {
         message.channel.sendEmbed(embed);
     }
 
-    if(message.content.startsWith(prefix + "ban8462")) {
+    if(message.content.startsWith(prefix + "ban")) {
         var member= message.mentions.members.first();
         // Ban
         member.ban().then((member) => {
@@ -94,7 +94,7 @@ bot.on("message", message => {
         })
     }
 
-    if(message.content.startsWith(prefix + "kick8462")) {
+    if(message.content.startsWith(prefix + "kick")) {
         var member= message.mentions.members.first();
         // Kick
         member.kick().then((member) => {
