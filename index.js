@@ -18,9 +18,10 @@ bot.on("message", message => {
         .setTitle("__Voici la liste des commandes__:")
         .setThumbnail(message.author.avatarURL)
         .setDescription("__**DIVERS**__ : \n" +
-            " `<support` : *Te donne le serveur de mon créateur* \n" +
-            " `<invite` : *Te donne un lien pour m'invité* \n" +
-            " `<dhelp` : *Te donne les commande en direct* \n" )
+            " `<support` : *Te donne le serveur de mon créateur.* \n" +
+            " `<invite` : *Te donne un lien pour m'invité;* \n" +
+            " `<dhelp` : *Te donne les commande en direct.* \n" +
+            " `<date` : *Te donne la date.* \n" )
       message.author.send({embed});
       message.reply(" 📧 Regarde tes messages !");
       }
@@ -73,7 +74,7 @@ bot.on("message", message => {
     if (message.content === prefix + "dhelp"){
         var embed = new Discord.RichEmbed()
             .setDescription(`${message.author.username}, Voici la liste des commandes:`)
-            .addField('DIVERS:' , "` <support \n<invite \n<dhelp `")
+            .addField('DIVERS:' , "` <support \n<invite \n<dhelp \n<date`")
             .addField(`MODERATION:` , "` ❌<ban \n❌<kick \n <say`")
             .addField('FUN:' , "'PAS ENCORE'" ) 
             .setTimestamp()
@@ -113,5 +114,17 @@ bot.on("message", message => {
         message.channel.send(msg);
     }
 }
+
+    if(message.content.startsWith(prefix + "date")) {
+        var d = new Date()
+        let embed = new Discord.RichEmbed()
+        .setColor('#5F04B4')
+        .setTitle("Voici la date actuelle")
+        .addField("Nous sommes le " + d, "Bonne journée")
+        .setFooter(`Demandé par ${message.author.tag} | @Edωɨה#5292  `)
+        .setTimestamp()
+            message.channel.send({embed})
+    }
+
 
 });
