@@ -129,7 +129,12 @@ bot.on("message", message => {
 });
 
 bot.on("message", function(message) {
-    break;
+    if (message.author.equals(bot.user)) return;
+    
+    if (!message.content.startsWith(prefix)) return;
+    
+    var args = message.content.substring(prefix.length).split(" ");
+
     case "avatar":
     if (!message.mentions.users.first()) return message.channel.send("Merci de mentionner un utilisateur")
         let user = message.mentions.users.first() ? message.mentions.users.first() : message.author
@@ -141,4 +146,5 @@ bot.on("message", function(message) {
         }
     message.channel.send("", {embed})
     break;
+    
     });
