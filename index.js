@@ -40,7 +40,7 @@ bot.on("message", message => {
       let embed = new Discord.RichEmbed()
       .setColor('#00FFFF')
       .setDescription("__**FUN**__ : \n" +
-      "🔔PAS ENCORE🔔")
+      " `<avatar (@user)` : *Montre l'avatar d'une personne*\n")
       message.author.send({embed});
       }
 
@@ -76,7 +76,7 @@ bot.on("message", message => {
             .setDescription(`${message.author.username}, Voici la liste des commandes:`)
             .addField('DIVERS:' , "` <support \n<invite \n<dhelp `")
             .addField(`MODERATION:` , "` ❌<ban \n❌<kick \n <say`")
-            .addField('FUN:' , "'PAS ENCORE'" ) 
+            .addField('FUN:' , "' <avatar \n'" ) 
             .setTimestamp()
             .setColor("0x00FF00")
             .setFooter("RIEN METTRE EN MAJ, SI TU COMPREND PAS FAIT [<help]  | @Edωɨה#5292 ")
@@ -129,50 +129,6 @@ bot.on("message", message => {
 });
 
 bot.on("message", function(message) {
-    if (message.author.equals(bot.user)) return;
-    
-    if (!message.content.startsWith(prefix)) return;
-    
-    var args = message.content.substring(prefix.length).split(" ");
-    
-    switch (args[0].toLowerCase()) {
-        case "play":
-        var argsplay = message.content.substring(prefix.length).split(" ");
-            if (!argsplay[1]) {
-                message.channel.sendMessage("Merci d'envoyer le lien.");
-                return;
-            }
-
-            if (!message.member.voiceChannel) {
-                message.channel.sendMessage("Tu dois être dans un channel vocal.");
-                return;
-            }
-
-            if(!servers[message.guild.id]) servers[message.guild.id] = {
-                queue: []
-            };
-
-            var server = servers[message.guild.id];
-
-            server.queue.push(argsplay[1]);
-
-            if (!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection) {
-                play(connection, message);
-                message.channel.send("Lancement de votre musique. \n En cas de problème, vérifier si c'est un lien ( et non un teste ), si celle-ci n'a pas de copyright ou est correcte.")
-            });
-            break;
-        case "skip":
-            var server = servers[message.guild.id];
-
-            if (server.dispatcher) server.dispatcher.end();
-            message.channel.send("Musique skipé !\nEn cas de problème, vérifier si c'est un lien ( et non un teste ), si celle-ci n'a pas de copyright ou est correcte.")
-            break;
-        case "stop":
-            var server = servers[message.guild.id];
-
-            if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
-            message.channel.send("Musique arrêté.")
-            break;
             case "avatar":
             if (!message.mentions.users.first()) return message.channel.send("Merci de mentionner un utilisateur")
                 let user = message.mentions.users.first() ? message.mentions.users.first() : message.author
@@ -184,4 +140,4 @@ bot.on("message", function(message) {
                 }
             message.channel.send("", {embed})
             break
-            }});
+            });
