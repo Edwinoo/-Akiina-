@@ -20,8 +20,7 @@ bot.on("message", message => {
         .setDescription("__**DIVERS**__ : \n" +
             " `<support` : *Te donne le serveur de mon créateur.* \n" +
             " `<invite` : *Te donne un lien pour m'invité;* \n" +
-            " `<dhelp` : *Te donne les commande en direct.* \n" +
-            " `❌<date❌` : *Te donne la date.* \n" )
+            " `<dhelp` : *Te donne les commande en direct.* \n" )
       message.author.send({embed});
       message.reply(" 📧 Regarde tes messages !");
       }
@@ -32,7 +31,8 @@ bot.on("message", message => {
         .setDescription("__**MODERATION**__ : \n" +
             " `<kick (@user)` : *Pour kick un joueur*(PARFOIS BUG)\n" +
             " `<ban (@user)` : *Pour ban une personne*(PARFOIS BUG)\n" +
-            " `<say` : *Pour envoyer un message au nom du bot*\n" )
+            " `<say` : *Pour envoyer un message au nom du bot*\n" +
+            " `<clear` : *Pour supprimer des messages.*\n" )
       message.author.send({embed});
       }
 
@@ -75,7 +75,7 @@ bot.on("message", message => {
         var embed = new Discord.RichEmbed()
             .setDescription(`${message.author.username}, Voici la liste des commandes:`)
             .addField('DIVERS:' , "` <support \n<invite \n<dhelp `")
-            .addField(`MODERATION:` , "` ❌<ban \n❌<kick \n <say`")
+            .addField(`MODERATION:` , "` <ban \n<kick \n <say \n <clear`")
             .addField('FUN:' , "' <avatar \n'" ) 
             .setTimestamp()
             .setColor("0x00FF00")
@@ -83,7 +83,7 @@ bot.on("message", message => {
         message.channel.sendEmbed(embed);
     }
 
-    if(message.content.startsWith(prefix + "ban")) {
+    if(message.content.startsWith(prefix + "846259637891ban")) {
         var member= message.mentions.members.first();
         // Ban
         member.ban().then((member) => {
@@ -95,7 +95,7 @@ bot.on("message", message => {
         })
     }
 
-    if(message.content.startsWith(prefix + "kick")) {
+    if(message.content.startsWith(prefix + "846259637891kick")) {
         var member= message.mentions.members.first();
         // Kick
         member.kick().then((member) => {
@@ -115,12 +115,11 @@ bot.on("message", message => {
     }
 }
 
-    if(message.content.startsWith(prefix + "testdate")) {
+    if(message.content.startsWith(prefix + "edwin")) {
         var d = new Date()
         let embed = new Discord.RichEmbed()
         .setColor('#5F04B4')
         .setTitle("Voici la date actuelle")
-        .addField("Nous sommes le " + d, "Bonne journée")
         .setFooter(`Demandé par ${message.author.tag} | @Edωɨה#5292  `)
         .setTimestamp()
             message.channel.send({embed})
@@ -191,4 +190,39 @@ bot.on("message", function(message) {
                        message.channel.bulkDelete(list);
                    }, function(err){message.channel.send("Erreur")})}
                break;
+               case "kick":
+           let command = message.content.split(" ")[0];
+           const args = message.content.slice(prefix.length).split(/ +/);
+           command = args.shift().toLowerCase();
+    
+               if(!message.member.hasPermission("KICK_MEMBERS")) {
+                   return message.reply("❌ **hep hep, Ta pas les permissions !**").catch(console.error);
+               }
+               if(message.mentions.users.size === 0) {
+                   return message.reply("Merci de mentionner l'utilisateur à expluser.").catch(console.error);
+               }
+               let kickMember = message.guild.member(message.mentions.users.first());
+               if(!kickMember) {
+                   return message.reply("Cet utilisateur est introuvable ou impossible à expulser.")
+               }
+               if(!message.guild.member(bot.user).hasPermission("KICK_MEMBERS")) {
+                   return message.reply("Je n'ai pas la permission KICK_MEMBERS pour faire ceci.").catch(console.error);
+               }
+               kickMember.kick().then(member => {
+                   message.reply(" ✅ " + member.displayName + " **Je les dégager mais fait gaf il peut revenir.** :wave: ").catch(console.error);
+               }).catch(console.error)
+           break;
+           case "ban":
+           let commande = message.content.split(" ")[0];
+           const argse = message.content.slice(prefix.length).split(/ +/);
+           commande = argse.shift().toLowerCase();
+           if(!message.member.hasPermission("BAN_MEMBERS")) {
+               return message.reply("❌ **hep hep, Ta pas les permissions !**").catch(console.error);
+           }
+           const member = message.mentions.members.first();
+           if (!member) return message.reply("Merci de mentionner l'utilisateur à bannir.");
+           member.ban().then(member => {
+               message.reply(" ✅ " + member.displayName + " **C'est bon, il reviendra plus.** :wave: ").catch(console.error);
+           }).catch(console.error)
+           break;
             }});
