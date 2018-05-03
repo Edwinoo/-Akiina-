@@ -125,6 +125,7 @@ bot.on("message", message => {
         .setTimestamp()
             message.channel.send({embed})
     }
+
 });
 
 bot.on("message", function(message) {
@@ -182,4 +183,5 @@ bot.on("message", function(message) {
                 image:{url:ava}
                 }
             message.channel.send("", {embed})
-            break;
+            break
+        });
