@@ -42,7 +42,7 @@ bot.on("message", message => {
       .setDescription("__**FUN**__ : \n" +
       " `<avatar (@user)` : *Montre l'avatar d'une personne*\n" +
       " `<sondage` : *Créer ton Sondage*\n" +
-      " `<Akiina` : *Pose des question et Akiina repond*\n" )
+      " `<8ball` : *Pose des question et Akiina repond*\n" )
       message.author.send({embed});
       }
 
@@ -78,7 +78,7 @@ bot.on("message", message => {
             .setDescription(`${message.author.username}, Voici la liste des commandes:`)
             .addField('DIVERS:' , "` <support \n<invite \n<dhelp `")
             .addField(`MODERATION:` , "` <ban \n<kick \n<say \n<clear`")
-            .addField('FUN:' , "'<avatar \n<sondage \n<Akiina'" ) 
+            .addField('FUN:' , "'<avatar \n<sondage \n<8ball'" ) 
             .setTimestamp()
             .setColor("0x00FF00")
             .setFooter("RIEN METTRE EN MAJ, SI TU COMPREND PAS FAIT [<help]  | @Edωɨה#5292 ")
@@ -248,7 +248,7 @@ bot.on("message", function(message) {
            }else{
                return message.reply("❌ **Ta pas les permissions !**")}
            break;
-           case "Akiina":
+           case "8ball":
            let argsed = message.content.split(" ").slice(1);
            let tte = argsed.join(" ")
            if (!tte){
