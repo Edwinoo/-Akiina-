@@ -225,4 +225,25 @@ bot.on("message", function(message) {
                message.reply(" ✅ " + member.displayName + " **C'est bon, il reviendra plus.** :wave: ").catch(console.error);
            }).catch(console.error)
            break;
+           case "sondage":
+           if (message.member.hasPermission("MANAGE_MESSAGES")) {
+               let args = message.content.split(" ").slice(1);
+               let thingToEcho = args.join(" ")
+               if (!thingToEcho) return message.reply("Merci d'envoyer une question pour le sondage")
+               if (!message.guild.channels.find("name", "sondage")) return message.reply("Le channel sondage est introuvable. merci de crée ce channel pour que celui-ci marche.")
+               var embedeee = new Discord.RichEmbed()
+                   .setDescription("Sondage")
+                   .addField(thingToEcho, "Répondre avec :white_check_mark: ou :x:")
+                   .setColor("0xB40404")
+                   .setTimestamp()
+           message.channel.sendMessage("Votre sondage a bien été envoyé dans #sondage.")
+           message.guild.channels.find("name", "sondage").sendEmbed(embedeee)
+           .then(function (message) {
+               message.react("✅")
+               message.react("❌")
+           }).catch(function() {
+           });
+           }else{
+               return message.reply("Tu n'as pas la permission.")}
+           break;
             }});
