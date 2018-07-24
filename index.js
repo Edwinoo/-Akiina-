@@ -85,30 +85,6 @@ bot.on("message", message => {
         message.channel.sendEmbed(embed);
     }
 
-    if(message.content.startsWith(prefix + "846259637891ban")) {
-        var member= message.mentions.members.first();
-        // Ban
-        member.ban().then((member) => {
-        // Successmessage
-        message.channel.send(" ✅ " + member.displayName + " **C'est bon, il reviendra plus.** :wave: ");
-        }).catch(() => {
-        // Failmessage
-        message.channel.send(" ❌ **hep hep, Ta pas les permissions !**");
-        })
-    }
-
-    if(message.content.startsWith(prefix + "846259637891kick")) {
-        var member= message.mentions.members.first();
-        // Kick
-        member.kick().then((member) => {
-        // Successmessage
-        message.channel.send(" ✅ " + member.displayName + " **Je les dégager mais fait gaf il peut revenir.** :wave: ");
-        }).catch(() => {
-        // Failmessage
-        message.channel.send(" ❌ **hep hep, Ta pas les permissions !**");
-        })
-    }
-
     if (message.content.startsWith( prefix + "say")) {
         if(message.member.hasPermission("ADMINISTRATOR")){
         var msg = message.content.substr('4')
@@ -137,7 +113,18 @@ bot.on("message", function(message) {
     var args = message.content.substring(prefix.length).split(" ");
     
     switch (args[0].toLowerCase()) {
-        case "clear":
+       case "avatar":
+            if (!message.mentions.users.first()) return message.channel.send("**Merci de mentionner un utilisateur**")
+                let user = message.mentions.users.first() ? message.mentions.users.first() : message.author
+                let ava = user.displayAvatarURL
+                let embed = {
+                color:0x000000,
+                description:"Avatar de "+user.username+"",
+                image:{url:ava}
+                }
+            message.channel.send("", {embed})
+            break;
+            case "clear":
            if (message.member.hasPermission("MANAGE_MESSAGES")) {
                message.channel.fetchMessages()
                   .then(function(list){
