@@ -12,7 +12,7 @@ bot.login(process.env.TOKEN);
 
 
 bot.on("message", message => {
-    if(message.content.startsWith(prefix + "help")){
+    if(message.content.startsWith(prefix + "help") || message.content.startsWith(prefix + "Help")) {
         let embed = new Discord.RichEmbed()
         .setColor('#FFFF00')
         .setTitle("__Voici la liste des commandes__:")
@@ -25,7 +25,7 @@ bot.on("message", message => {
       message.reply(" 📧 Regarde tes messages !");
       }
 
-      if(message.content.startsWith(prefix + "help")){
+      if(message.content.startsWith(prefix + "help") || message.content.startsWith(prefix + "Help")) {
         let embed = new Discord.RichEmbed()
         .setColor('#FF8000')
         .setDescription("__**MODERATION**__ : \n" +
@@ -36,7 +36,7 @@ bot.on("message", message => {
       message.author.send({embed});
       }
 
-      if(message.content.startsWith(prefix + "help")){
+      if(message.content.startsWith(prefix + "help") || message.content.startsWith(prefix + "Help")) {
       let embed = new Discord.RichEmbed()
       .setColor('#00FFFF')
       .setDescription("__**FUN**__ : \n" +
@@ -46,7 +46,7 @@ bot.on("message", message => {
       message.author.send({embed});
       }
 
-      if(message.content.startsWith(prefix + "help")) {
+      if(message.content.startsWith(prefix + "help") || message.content.startsWith(prefix + "Help")) {
         let embed = new Discord.RichEmbed()
         .setColor('#00FF00')
         .setDescription("__**INFORMATION**__ : \n" +
@@ -63,7 +63,7 @@ bot.on("message", message => {
         console.log("Commande Support effectué");
     }
 
-    if(message.content.startsWith(prefix + "invite")) {
+        if(message.content.startsWith(prefix + "invite") || message.content.startsWith(prefix + "Invite")) {
         let embed = new Discord.RichEmbed()
         .setColor('#00FFFF')
         .setTitle("Invite moi")
@@ -85,7 +85,7 @@ bot.on("message", message => {
         message.channel.sendEmbed(embed);
     }
 
-    if (message.content.startsWith( prefix + "say")) {
+    if(message.content.startsWith(prefix + "say") || message.content.startsWith(prefix + "Say")) {
         if(message.member.hasPermission("ADMINISTRATOR")){
         var msg = message.content.substr('4')
         message.delete(message.author);
