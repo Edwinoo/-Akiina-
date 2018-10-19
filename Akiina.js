@@ -1,4 +1,5 @@
 //Options !
+const yourID = "@Edωɨה#5292 "; //Bug pseudo [Edwin#5292] R spleat
 const setupCMD = "!createrolemessage"
 let initialMessage = `**React to the messages below to receive the associated role. If you would like to remove the role, simply remove your reaction!**`;
 const roles = ["Hacker", "Artist", "Public Relations", "Intern"];
