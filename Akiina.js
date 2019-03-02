@@ -3,10 +3,6 @@ const bot = new Discord.Client();
 
 var prefix = ("<")
 
-bot.on("ready", function() {
-    console.log("COUCOU JE SUIS LA !!");
-});
-
 bot.login(process.env.TOKEN);
 
 let statuses = ['<Aide ','test1','test2','test3']
