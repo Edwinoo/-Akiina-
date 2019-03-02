@@ -4,12 +4,20 @@ const bot = new Discord.Client();
 var prefix = ("<")
 
 bot.on("ready", function() {
-    bot.user.setActivity(`<Aide | ${bot.guilds.size} Servers | ${bot.users.size} Users | [V: 4.2]`)
     console.log("COUCOU JE SUIS LA !!");
 });
 
 bot.login(process.env.TOKEN);
 
+let statuses = ['<Aide ','test1','test2','test3']
+
+client.on('ready', () => {
+    setInvterval(function() {
+        let statuses = statuses[Math,floor(Math.random()*statuses.length)];
+        client.user.setOresence({ activity: {name: status }, status: 'online' });
+        
+    }, 3)
+})
 
 bot.on("message", message => {
     if(message.content.startsWith(prefix + "aide") || message.content.startsWith(prefix + "Aide")) {
