@@ -1,13 +1,17 @@
 const Discord = require("discord.js");
-const bot = new Discord.Client();
+const client = new Discord.Client();
 
 var prefix = ("<")
 
-bot.login(process.env.TOKEN);
+client.on("ready", function() {
+    console.log("COUCOU JE SUIS LA !!");
+});
+
+client.login(process.env.TOKEN);
 
 let statuses = ['<Aide ','test1','test2','test3']
 
-bot.on("ready", () => {
+client.on('ready', () => {
     setInvterval(function() {
         let statuses = statuses[Math,floor(Math.random()*statuses.length)];
         client.user.setOresence({ activity: {name: status }, status: 'online' });
@@ -15,7 +19,7 @@ bot.on("ready", () => {
     }, 3)
 })
 
-bot.on("message", message => {
+client.on("message", message => {
     if(message.content.startsWith(prefix + "aide") || message.content.startsWith(prefix + "Aide")) {
         let embed = new Discord.RichEmbed()
         .setColor('#FFFF00')
@@ -119,7 +123,7 @@ bot.on("message", message => {
 
 });
 
-bot.on("message", function(message) {
+client.on("message", function(message) {
     if (message.author.equals(bot.user)) return;
     
     if (!message.content.startsWith(prefix)) return;
