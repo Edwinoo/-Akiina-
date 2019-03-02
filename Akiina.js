@@ -6,8 +6,8 @@ var prefix = ("<")
 client.login(process.env.TOKEN);
 
 const activities_list = (
-    `<Aide | ${bot.guilds.size} Servers | ${bot.users.size} Users `, 
-    `<Aide | ${bot.guilds.size} Servers | ${bot.users.size} Users `,
+    `<Aide | ${client.guilds.size} Servers | ${client.users.size} Users `, 
+    `<Aide | ${client.guilds.size} Servers | ${client.users.size} Users `,
     `Discord ► https://discord.gg/dehgnGp`, 
     `By Edwin [V4.7]`
     );
