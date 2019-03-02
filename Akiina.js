@@ -4,7 +4,7 @@ const bot = new Discord.Client();
 var prefix = ("<")
 
 bot.on("ready", function() {
-    bot.user.setActivity(`<Aide | ${bot.guilds.size} Servers | ${bot.users.size} Users | [V: 4.2] By @Edωɨה#4822 `)
+    bot.user.setActivity(`<Aide | ${bot.guilds.size} Servers | ${bot.users.size} Users | [V: 4.2]`)
     console.log("COUCOU JE SUIS LA !!");
 });
 
