@@ -5,15 +5,19 @@ var prefix = ("<")
 
 client.login(process.env.TOKEN);
 
-let statuses = ['<Aide ','test1','test2','test3']
+const activities_list = [
+    "test.", 
+    "2e",
+    "3", 
+    "44"
+    ];
 
 client.on('ready', () => {
-    setInterval(function() {
-        let statuses = statuses[Math,floor(Math.random()*statuses.length)];
-        client.user.setOresence({ activity: {name: status }, status: 'online' });
-        
-    }, 3)
-})
+    setInterval(() => {
+        const index = Math.floor(Math.random() * (activities_list.length - 1) + 1);
+        client.user.setActivity(activities_list[index]);
+    }, 10000);
+});
 
 client.on("message", message => {
     if(message.content.startsWith(prefix + "aide") || message.content.startsWith(prefix + "Aide")) {
