@@ -16,7 +16,7 @@ client.on('ready', () => {
     setInterval(() => {
         const index = Math.floor(Math.random() * (activities_list.length - 1) + 1);
         client.user.setActivity(activities_list[index]);
-    }, 300);
+    }, 1000);
 });
 
 client.on("message", message => {
