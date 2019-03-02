@@ -5,12 +5,12 @@ var prefix = ("<")
 
 client.login(process.env.TOKEN);
 
-const activities_list = (
+const activities_list = [
     "<Aide ", 
     "<Aide ",
     "Discord ► https://discord.gg/dehgnGp", 
     "By Edwin [V4.7]"
-    );
+    ];
 
 client.on('ready', () => {
     setInterval(() => {
