@@ -8,7 +8,7 @@ client.login(process.env.TOKEN);
 let statuses = ['<Aide ','test1','test2','test3']
 
 client.on('ready', () => {
-    setInvterval(function() {
+    setInterval(function() {
         let statuses = statuses[Math,floor(Math.random()*statuses.length)];
         client.user.setOresence({ activity: {name: status }, status: 'online' });
         
