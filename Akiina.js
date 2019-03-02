@@ -6,7 +6,7 @@ var prefix = ("<")
 client.login(process.env.TOKEN);
 
 const activities_list = [
-    "test.", 
+    "<Aide.", 
     "2e",
     "3", 
     "44"
@@ -16,7 +16,7 @@ client.on('ready', () => {
     setInterval(() => {
         const index = Math.floor(Math.random() * (activities_list.length - 1) + 1);
         client.user.setActivity(activities_list[index]);
-    }, 10000);
+    }, 30);
 });
 
 client.on("message", message => {
