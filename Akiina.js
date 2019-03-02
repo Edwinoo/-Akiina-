@@ -6,8 +6,8 @@ var prefix = ("<")
 client.login(process.env.TOKEN);
 
 const activities_list = [
-    "<Aide.", 
-    "2e",
+    "<Aide", 
+    "<Aide",
     "3", 
     "44"
     ];
