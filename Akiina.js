@@ -34,6 +34,7 @@ client.on("message", message => {
         let embed = new Discord.RichEmbed()
         .setColor('#0080FF')
         .setDescription("__**Commandes Admin:**__ \n" +
+            " ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ \n" +
             " **<kick {@user}** \n" +
             " Pour expulser un utilisateur du serveur. \n" +
             " **<ban {@user}** \n" +
@@ -43,7 +44,8 @@ client.on("message", message => {
             " **<clear {1 - 99}** \n" +
             " Supprimer les messages d'un salon textuel.\n" +
             " **<sondage ** \n" +
-            " Créer ton Sondage, avec ✅ou❌.\n" )
+            " Créer ton Sondage.\n" +
+            " ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ \n" )
       message.author.send({embed});
       }
 
@@ -51,6 +53,7 @@ client.on("message", message => {
       let embed = new Discord.RichEmbed()
       .setColor('#0080FF')
       .setDescription("__**Commandes par défaut:**__ \n" +
+      " ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ \n" +
       " **<avatar {@user}** \n" +
       " Montre l'avatar d'une personne. \n" +
       " **<8ball** \n" +
@@ -61,7 +64,8 @@ client.on("message", message => {
       " **<invite** \n" +
       " Te donne mon lien d'invitation. \n" +
       " **<dhelp** \n" +
-      " Te donne les commande en direct dans un salon textuel. \n" )
+      " Te donne les commande en direct dans un salon textuel. \n" +
+      " ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ \n" )
       message.author.send({embed});
       }
 
