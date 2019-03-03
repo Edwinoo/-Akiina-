@@ -5,20 +5,6 @@ var prefix = ("<")
 
 client.login(process.env.TOKEN);
 
-const activities_list = [
-    "<Aide | By Edwin [V4.7]",
-    "<Aide | By Edwin [V4.7]",
-    "Discord ► https://discord.gg/dehgnGp",
-    "PROCHAINEMENT UN NOUVEAU BOT !"
-    ];
-
-client.on('ready', () => {
-    setInterval(() => {
-        const index = Math.floor(Math.random() * (activities_list.length - 1) + 1);
-        client.user.setActivity(activities_list[index]);
-    }, 10000);
-});
-
 client.on("message", message => {
     if(message.content.startsWith(prefix + "aide") || message.content.startsWith(prefix + "Aide")) {
         let embed = new Discord.RichEmbed()
