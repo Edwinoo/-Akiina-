@@ -33,7 +33,7 @@ client.on("message", message => {
       if(message.content.startsWith(prefix + "aide") || message.content.startsWith(prefix + "Aide")) {
         let embed = new Discord.RichEmbed()
         .setColor('#0080FF')
-        .setTitle("**Commandes Admin:** \n" +
+        .setDescription("**Commandes Admin:** \n" +
             " **<kick {@user}** \n" +
             " Pour expulser un utilisateur du serveur. \n" +
             " **<ban {@user}** \n" +
