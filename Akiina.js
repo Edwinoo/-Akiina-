@@ -24,7 +24,7 @@ client.on("message", message => {
         .setColor('#0080FF')
         .setTitle("__Voici la liste des commandes__:")
         .setThumbnail(message.author.avatarURL)
-        .addBlankField("Info:" \n +
+        .addBlankField("Info: \n" +
             " Si une commande contient {...}, cela signifie que c'est un argument optionnel. \n" )
       message.author.send({embed});
       message.reply(" 📧 Regarde tes messages !");
