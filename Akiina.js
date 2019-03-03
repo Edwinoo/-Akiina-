@@ -24,7 +24,7 @@ client.on("message", message => {
         .setColor('#0080FF')
         .setTitle("__Voici la liste des commandes__:")
         .setThumbnail(message.author.avatarURL)
-        .addBlankField("Info: \n" +
+        .setDescription("**Info** : \n" +
             " Si une commande contient {...}, cela signifie que c'est un argument optionnel. \n" )
       message.author.send({embed});
       message.reply(" 📧 Regarde tes messages !");
@@ -33,7 +33,7 @@ client.on("message", message => {
       if(message.content.startsWith(prefix + "aide") || message.content.startsWith(prefix + "Aide")) {
         let embed = new Discord.RichEmbed()
         .setColor('#0080FF')
-        .setDescription("Commandes Admin: \n" +
+        .setDescription("__**Commandes Admin:**__ \n" +
             " **<kick {@user}** \n" +
             " Pour expulser un utilisateur du serveur. \n" +
             " **<ban {@user}** \n" +
@@ -41,28 +41,27 @@ client.on("message", message => {
             " **<say {message}** \n" +
             " Pour envoyer un message au nom du bot. \n" +
             " **<clear {1 - 99}** \n" +
-            " Supprimer les messages d'un salon textuel.\n" )
+            " Supprimer les messages d'un salon textuel.\n" +
+            " **<sondage ** \n" +
+            " Créer ton Sondage, avec ✅ou❌.\n" )
       message.author.send({embed});
       }
 
       if(message.content.startsWith(prefix + "aide") || message.content.startsWith(prefix + "Aide")) {
       let embed = new Discord.RichEmbed()
-      .setColor('#00FFFF')
-      .setDescription("__**FUN**__ : \n" +
-      " `<avatar (@user)` : *Montre l'avatar d'une personne*\n" +
-      " `<sondage` : *Créer ton Sondage*\n" +
-      " `<8ball` : *Pose des question et Akiina repond*\n" )
-      message.author.send({embed});
-      }
-
-      if(message.content.startsWith(prefix + "aide") || message.content.startsWith(prefix + "Aide")) {
-        let embed = new Discord.RichEmbed()
-        .setColor('#00FF00')
-        .setDescription("__**INFORMATION**__ : \n" +
-        "**[[Mon Steam]](https://steamcommunity.com/id/Fharze)**\n" +
-        "**[Ma Chaine YouTube] PAS ENCORE**\n" )
-        .setFooter(`Réclamé par ${message.author.tag} | @Edωɨה#5292 `)
-        .setTimestamp()
+      .setColor('#0080FF')
+      .setDescription("__**Commandes par défaut:**__ \n" +
+      " **<avatar {@user}** \n" +
+      " Montre l'avatar d'une personne. \n" +
+      " **<8ball** \n" +
+      " Pose des question et Akiix te repond. \n" +
+      " ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ \n" +
+      " **<support** \n" +
+      " Te donne le serveur de mon créateur. \n" +
+      " **<invite** \n" +
+      " Te donne mon lien d'invitation. \n" +
+      " **<dhelp** \n" +
+      " Te donne les commande en direct dans un salon textuel. \n" )
       message.author.send({embed});
       }
 
