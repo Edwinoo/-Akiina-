@@ -21,25 +21,27 @@ client.on('ready', () => {
 client.on("message", message => {
     if(message.content.startsWith(prefix + "aide") || message.content.startsWith(prefix + "Aide")) {
         let embed = new Discord.RichEmbed()
-        .setColor('#FFFF00')
+        .setColor('#0080FF')
         .setTitle("__Voici la liste des commandes__:")
         .setThumbnail(message.author.avatarURL)
-        .setDescription("__**DIVERS**__ : \n" +
-            " `<support` : *Te donne le serveur de mon créateur.* \n" +
-            " `<invite` : *Te donne un lien pour m'invité;* \n" +
-            " `<dhelp` : *Te donne les commande en direct.* \n" )
+        .setDescription("**INFO:** : \n" +
+            " Si une commande contient {...}, cela signifie que c'est un argument optionnel. \n" )
       message.author.send({embed});
       message.reply(" 📧 Regarde tes messages !");
       }
 
       if(message.content.startsWith(prefix + "aide") || message.content.startsWith(prefix + "Aide")) {
         let embed = new Discord.RichEmbed()
-        .setColor('#FF8000')
-        .setDescription("__**MODERATION**__ : \n" +
-            " `<kick (@user)` : *Pour kick un joueur*(PARFOIS BUG)\n" +
-            " `<ban (@user)` : *Pour ban une personne*(PARFOIS BUG)\n" +
-            " `<say` : *Pour envoyer un message au nom du bot*\n" +
-            " `<clear + Nombre` : *Pour supprimer des messages.*\n" )
+        .setColor('#0080FF')
+        .setTitle("**Commandes Admin:** \n" +
+            " **<kick {@user}** \n" +
+            " Pour expulser un utilisateur du serveur. \n" +
+            " **<ban {@user}** \n" +
+            " Pour bannir un utilisateur du serveur. \n" +
+            " **<say {message}** \n" +
+            " Pour envoyer un message au nom du bot. \n" +
+            " **<clear {1 - 99}** \n" +
+            " Supprimer les messages d'un salon textuel.\n" )
       message.author.send({embed});
       }
 
