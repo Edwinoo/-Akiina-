@@ -6,10 +6,10 @@ var prefix = ("<")
 client.login(process.env.TOKEN);
 
 const activities_list = [
-    "Say: <Aide ",
-    "Say: <Aide ",
+    "<Aide | By Edwin [V4.7]",
+    "<Aide | By Edwin [V4.7]",
     "Discord ► https://discord.gg/dehgnGp",
-    "By Edwin [V4.7]"
+    "PROCHAINEMENT UN NOUVEAU BOT !"
     ];
 
 client.on('ready', () => {
