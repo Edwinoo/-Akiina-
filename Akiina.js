@@ -24,7 +24,7 @@ client.on("message", message => {
         .setColor('#0080FF')
         .setTitle("__Voici la liste des commandes__:")
         .setThumbnail(message.author.avatarURL)
-        .setDescription("**INFO:** : \n" +
+        .setDescription("Info: \n" +
             " Si une commande contient {...}, cela signifie que c'est un argument optionnel. \n" )
       message.author.send({embed});
       message.reply(" 📧 Regarde tes messages !");
@@ -33,7 +33,7 @@ client.on("message", message => {
       if(message.content.startsWith(prefix + "aide") || message.content.startsWith(prefix + "Aide")) {
         let embed = new Discord.RichEmbed()
         .setColor('#0080FF')
-        .setDescription("**Commandes Admin:** \n" +
+        .setDescription("Commandes Admin: \n" +
             " **<kick {@user}** \n" +
             " Pour expulser un utilisateur du serveur. \n" +
             " **<ban {@user}** \n" +
